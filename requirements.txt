@@ -12,7 +12,6 @@ python-dateutil==2.9.0.post0
 pytz==2026.3.post1
 requests==2.34.2
 requests-futures==1.0.2
-sherlock-project @ file:///C:/Users/FSL/Desktop/CYBER%20SECURITY/sherlock
 six==1.17.0
 stem==1.8.2
 tomli==2.4.1
