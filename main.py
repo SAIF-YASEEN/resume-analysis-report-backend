@@ -13,12 +13,11 @@ app = FastAPI(title="AI Resume Analyzer API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://resume-analysis-report.vercel.app/"],
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 # ==============================
 # Root Route
