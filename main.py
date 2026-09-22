@@ -19,6 +19,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # ==============================
 # Root Route
 # ==============================
@@ -26,7 +27,6 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-
     return {"success": True, "message": "AI Resume Analyzer API is running"}
 
 
@@ -43,7 +43,6 @@ async def analyze_resume_endpoint(file: UploadFile = File(...)):
     print("==============================")
 
     print("Filename:", file.filename)
-
     print("Content Type:", file.content_type)
 
     try:
@@ -79,27 +78,17 @@ async def analyze_resume_endpoint(file: UploadFile = File(...)):
         print("==============================")
 
         print("Name:", ai_result["personal"]["name"])
-
         print("Email:", ai_result["personal"]["email"])
-
         print("Phone:", ai_result["personal"]["phone"])
-
         print("ATS Score:", ai_result["ats_score"])
 
         print("\nSkills:", ai_result["skills"])
-
         print("\nExperience:", ai_result["experience"])
-
         print("\nProjects:", ai_result["projects"])
-
         print("\nEducation:", ai_result["education"])
-
         print("\nCertifications:", ai_result["certifications"])
-
         print("\nStrengths:", ai_result["strengths"])
-
         print("\nWeaknesses:", ai_result["weaknesses"])
-
         print("\nImprovements:", ai_result["improvements"])
 
         print("==============================\n")
@@ -127,6 +116,6 @@ async def analyze_resume_endpoint(file: UploadFile = File(...)):
 
     except Exception as error:
 
-        print("ERROR:", error)
+        print("ERROR:", repr(error))
 
-        raise HTTPException(status_code=500, detail="Failed to analyze resume")
+        raise HTTPException(status_code=500, detail=str(error))
